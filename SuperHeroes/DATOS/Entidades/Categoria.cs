@@ -1,4 +1,4 @@
-﻿namespace SuperHeroes.NEGOCIO
+﻿namespace SuperHeroes.DATOS
 {
     public class Categoria
     {

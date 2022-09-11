@@ -1,9 +1,9 @@
-﻿using SuperHeroes.NEGOCIO;
+﻿using SuperHeroes.DATOS.Repositorios;
 using System.Data.SqlClient;
 
 namespace SuperHeroes.DATOS
 {
-    public class CategoriaRepositorio
+    public class CategoriaRepositorio : ICategoriaRepositorio
     {
         private readonly IConfiguration _configuration;
 
