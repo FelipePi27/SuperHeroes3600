@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<ICalculo, Calculo>();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

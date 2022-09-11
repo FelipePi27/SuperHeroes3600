@@ -11,27 +11,24 @@ namespace SuperHeroes.DATOS
         {
             _configuration = configuration;
         }
-        public List<Categoria> ObtenerTodas() 
+        public List<Categoria> ObtenerTodas()
         {
-            var ListaCategorias = new List<Categoria>();
-            using SqlConnection sql = new SqlConnection(_configuration.GetConnectionString("conexionPorDefecto"));
+            var listaCategoria = new List<Categoria>();
+            using SqlConnection sql = new SqlConnection(_configuration.GetConnectionString("conexionPorDefecto")); 
             using SqlCommand cmd = new SqlCommand("select * from Categorias", sql);
             sql.Open();
-            using(var reader = cmd.ExecuteReader())
+            using (SqlDataReader reader = cmd.ExecuteReader())
             {
-                while(reader.Read())
+                while (reader.Read())
                 {
-                    var nuevaCategoria = new Categoria {Id =(int)reader["Id"],Nombre = reader["Nombre"].ToString() };
-                    ListaCategorias.Add(nuevaCategoria);    
+                    var nuevaCategoria = new Categoria {Id =(int)reader["Id"],Nombre = reader["Nombre"].ToString() };  
+                    listaCategoria.Add(nuevaCategoria); 
                 }
             }
+                
 
 
-            return ListaCategorias;
-        
+            return listaCategoria;
         }
-       
-            
-
     }
 }
