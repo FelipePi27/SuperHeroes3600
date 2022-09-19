@@ -15,7 +15,8 @@ namespace SuperHeroes.DATOS
         {
             var listaCategoria = new List<Categoria>();
             using SqlConnection sql = new SqlConnection(_configuration.GetConnectionString("conexionPorDefecto")); 
-            using SqlCommand cmd = new SqlCommand("select * from Categorias", sql);
+            using SqlCommand cmd = new SqlCommand("sp_obtener_categorias", sql);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure; 
             sql.Open();
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -29,6 +30,15 @@ namespace SuperHeroes.DATOS
 
 
             return listaCategoria;
+        }
+
+        public void CrearCategoria(Categoria categoria)
+        {
+            using SqlConnection sql = new SqlConnection(_configuration.GetConnectionString("conexionPorDefecto"));
+            using SqlCommand cmd = new SqlCommand("", sql);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            sql.Open();
+            cmd.ExecuteNonQuery();
         }
     }
 }
