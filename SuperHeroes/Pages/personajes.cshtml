@@ -1,0 +1,44 @@
+﻿@page
+@model SuperHeroes.Pages.personajesModel
+@{
+}
+<div class="card">
+    <div class="card-header bg-dark text-white d-flex justify-content-between">
+        <h3><i class="bi bi-list-ol"></i> Listado de Personajes</h3>
+        <a asp-page="/nuevo-personaje" class="btn btn-success"><i class="bi bi-plus-circle"></i> Nuevo Personaje</a>
+
+    </div>
+    <div class="card-body">
+        <table class"table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Categoria</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach(var personaje in Model.personajes)
+                    {
+                    <tr>
+                        <td>@personaje.Id</td>
+                        <td>@personaje.Nombre</td>
+                        <td>@personaje.FechaNacimiento</td>
+                        <td>@personaje.Categoria</td>
+                        <td>
+                            <a asp-page="/editar-categoria" class="btn btn-warning"><i class="bi bi-pencil-fill"></i> Editar</a>
+                            <a asp-page="/eliminar-categoria" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> Borrar</a>
+                        </td>
+                    </tr>
+                    
+                    
+                    }
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
