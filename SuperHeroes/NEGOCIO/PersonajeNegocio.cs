@@ -1,4 +1,7 @@
-﻿using SuperHeroes.DATOS.Repositorios;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using SuperHeroes.DATOS;
+using SuperHeroes.DATOS.Entidades;
+using SuperHeroes.DATOS.Repositorios;
 using SuperHeroes.DTO;
 using System.Reflection.Metadata.Ecma335;
 
