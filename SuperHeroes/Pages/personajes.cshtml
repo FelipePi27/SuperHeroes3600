@@ -9,7 +9,7 @@
 
     </div>
     <div class="card-body">
-        <table class"table table-striped">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -28,8 +28,8 @@
                         <td>@personaje.FechaNacimiento</td>
                         <td>@personaje.Categoria</td>
                         <td>
-                            <a asp-page="/editar-categoria" class="btn btn-warning"><i class="bi bi-pencil-fill"></i> Editar</a>
-                            <a asp-page="/eliminar-categoria" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> Borrar</a>
+                            <a asp-page="/editar-personaje" asp-route-id="@personaje.Id" class="btn btn-warning"><i class="bi bi-pencil-fill"></i> Editar</a>
+                            <a asp-page="/eliminar-personaje" asp-route-id="@personaje.Id" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> Borrar</a>
                         </td>
                     </tr>
                     

@@ -59,9 +59,7 @@ namespace SuperHeroes.DATOS
                 }
             }
 
-
-
-            return categoria;
+             return categoria;
         }
 
         public void ActualizarCategoria(Categoria categoria)
