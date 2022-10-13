@@ -73,7 +73,7 @@ namespace SuperHeroes.DATOS.Repositorios
                         Nombre = reader["Nombre"].ToString(),
                         NombreReal = reader["NombreReal"].ToString(),
                         SuperPoder = reader["SuperPoder"].ToString(),
-                        FechaNacimiento = Convert.ToDateTime(reader["FechaNacimiento"] == DBNull.Value ? null : Convert.ToDateTime(reader["FechaNacimineto"])),
+                        FechaNacimiento = Convert.ToDateTime(reader["FechaNacimiento"] == DBNull.Value ? null : Convert.ToDateTime(reader["FechaNacimiento"])),
                         CategoriaId = (int)reader["CategoriaId"],
                         ImagenUrl = reader["ImagenUrl"].ToString()
                     };
@@ -92,7 +92,9 @@ namespace SuperHeroes.DATOS.Repositorios
             using SqlConnection sql = new SqlConnection(_configuration.GetConnectionString("conexionPorDefecto"));
             using SqlCommand cmd = new SqlCommand("sp_actualizar_personaje", sql);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", personaje.Id));
             cmd.Parameters.Add(new SqlParameter("@nombre", personaje.Nombre));
+
             cmd.Parameters.Add(new SqlParameter("@nombreReal", personaje.NombreReal == null ? DBNull.Value : personaje.NombreReal));
             cmd.Parameters.Add(new SqlParameter("@superPoder", personaje.SuperPoder == null ? DBNull.Value : personaje.SuperPoder));
             cmd.Parameters.Add(new SqlParameter("@fechaNacimiento", personaje.FechaNacimiento == null ? DBNull.Value : personaje.FechaNacimiento));
@@ -105,7 +107,7 @@ namespace SuperHeroes.DATOS.Repositorios
         public void EliminarPersonaje(int id)
         {
             using SqlConnection sql = new SqlConnection(_configuration.GetConnectionString("conexionPorDefecto"));
-            using SqlCommand cmd = new SqlCommand(" sp_eliminar_personaje", sql);
+            using SqlCommand cmd = new SqlCommand("sp_eliminar_personaje", sql);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@id", id));
             sql.Open();
