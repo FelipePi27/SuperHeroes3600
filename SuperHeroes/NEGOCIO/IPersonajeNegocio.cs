@@ -11,5 +11,6 @@ namespace SuperHeroes.NEGOCIO
         SelectList ObtenerCategoriasLista();
         PersonajeParaEditarDTO ObtenerPersonajePorId(int id);
         List<PersonajeDTO> ObtenerTodos();
+        List<PersonajeParaGuardarDTO> ObtenerTodosIndex();
     }
 }

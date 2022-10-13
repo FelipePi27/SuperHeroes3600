@@ -3,8 +3,25 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="d-flex justify-content-between">
+        @foreach(var personaje in Model.personajes)
+        {
+        <div class="card col-4">
+            <div class="card-header  bg-dark text-white d-flex justify-content-between">
+                <h3>@personaje.Nombre</h3>
 
-<div class="text-center">
-    <h2 class="display-4">Bienvenidos</h2>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+            </div>
+            <div class="card-body">
+                <img class="img-fluid" src="@personaje.ImagenUrl" />
+
+            </div>
+            <div class=" card-footer">
+                <p>@personaje.NombreReal</p>
+                <p>@personaje.SuperPoder</p>
+            </div>
+        </div>
+        
+        }
+       
 </div>
+

@@ -41,6 +41,34 @@ namespace SuperHeroes.NEGOCIO
             return listaDTO;
         
         }
+        public List<PersonajeParaGuardarDTO> ObtenerTodosIndex()
+        {
+            var listaDTO = new List<PersonajeParaGuardarDTO>();
+            var listaEntidades = _personajeRepositorio.ObtenerTodos();
+
+            foreach (var entidad in listaEntidades)
+            {
+                var nuevoPersonajeDTO = new PersonajeParaGuardarDTO()
+                {
+                   
+                   
+                    
+                    Nombre = entidad.Nombre,
+                    CategoriaId = entidad.CategoriaId,  
+                    FechaNacimiento = entidad.FechaNacimiento,
+                    ImagenUrl = entidad.ImagenUrl,  
+                    NombreReal = entidad.NombreReal,    
+                    SuperPoder = entidad.SuperPoder    
+
+                };
+                listaDTO.Add(nuevoPersonajeDTO);
+
+
+            }
+
+            return listaDTO;
+
+        }
 
         public SelectList ObtenerCategoriasLista() 
         {
